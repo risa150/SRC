@@ -18,9 +18,9 @@ class KG {
 public:
 	int l=90,d=40,f=200,hn[3];
 	int oenc0=0,oenc1=0,oenc2=0;
-	float radgs=3;
-	float g=2;
-	float gs=5;
+	float radgs=2;
+	float g=3;
+	float gs=3; //x,yの誤差
 
 	float a=30;	//α：30　β：30
 	float b=-90;//α：-90 β：150
@@ -29,8 +29,8 @@ public:
 	float nas,nbs,ncs,nase,nbse,ncse,abx,aby,bcx,bcy,acx,acy,avex,avey;
 	float adist,bdist,cdist,ax,bx,cx,ay,by,cy,asl,bsl,csl,ase,bse,cse;
 	int p,j=0;
-	float xa[3]={0,0,0};  //-500:hidari
-	float ya[3]={2000,-2000,0};  //-500:sita
+	float xa[7]={0,-130,0,-500,0,630,0};  //-500:hidari
+	float ya[7]={2000,-130,500,0,-500,-2000+130,0};  //-500:sita
 	float lp,om1=0,om2=0,om3=0,re=16,n,k;
 	float deg=0,rad=0,q,m1=0,m2=0,m3=0,sa=0,w=0;
 	float la,r=10;
