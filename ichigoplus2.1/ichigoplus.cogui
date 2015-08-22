@@ -10,24 +10,64 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="2"/>
-<part id="0"/>
 <part id="1"/>
+<part id="0"/>
+<part id="2"/>
+<part id="3"/>
+<part id="7"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="pin.hpp" partName="pin.hpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_driver/board/pin.hpp" title="pin.hpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_driver/board/pin.hpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/board/pin.hpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2606" selectionTopPixel="3630"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="SelfPosition.cpp" partName="SelfPosition.cpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/SelfPosition.cpp" title="SelfPosition.cpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/SelfPosition.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/board/SelfPosition.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="979" selectionTopPixel="790"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="pin.cpp" partName="pin.cpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_driver/board/pin.cpp" title="pin.cpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_driver/board/pin.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/board/pin.cpp"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/main.cpp" title="main.cpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/main.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/main.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="952" selectionTopPixel="567"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="SelfPosition.hpp" partName="SelfPosition.hpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/SelfPosition.hpp" title="SelfPosition.hpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/SelfPosition.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/board/SelfPosition.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="813" selectionTopPixel="549"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Angle.cpp" partName="Angle.cpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/Angle.cpp" title="Angle.cpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/Angle.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/Angle.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="469" selectionTopPixel="181"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="out.cpp" partName="out.cpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/out.cpp" title="out.cpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/out.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/out.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="757" selectionTopPixel="658"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="out.hpp" partName="out.hpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/out.hpp" title="out.hpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/out.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/out.hpp"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="C:/Users/risarisa/Documents/SRC/ichigoplus2.1/main.cpp" title="main.cpp" tooltip="C:/Users/risarisa/Documents/SRC/ichigoplus2.1/main.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/main.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="880" selectionTopPixel="0"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="output.cpp" partName="output.cpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/output.cpp" title="output.cpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/output.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/output.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="721" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Angle.hpp" partName="Angle.hpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/Angle.hpp" title="Angle.hpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/Angle.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/Angle.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="410" selectionTopPixel="149"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="output.hpp" partName="output.hpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/output.hpp" title="output.hpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/output.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/output.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="spead.cpp" partName="spead.cpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/spead.cpp" title="spead.cpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/spead.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/spead.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="548" selectionTopPixel="793"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="spead.hpp" partName="spead.hpp" path="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/spead.hpp" title="spead.hpp" tooltip="C:/Users/risarisa/Desktop/苺plus/ichigoplus2.1/layer_controller/spead.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/spead.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="546" selectionTopPixel="349"/>
 </editor>
 </editors>
 <views>
@@ -35,9 +75,13 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/ichigoplus"/>
+<element path="/ichigoplus/layer_controller"/>
+<element path="/ichigoplus/layer_driver"/>
+<element path="/ichigoplus/layer_driver/circuit"/>
+<element path="/ichigoplus/syscalls"/>
 </expanded>
 <selection>
-<element path="/ichigoplus/main.cpp"/>
+<element path="/ichigoplus/layer_controller/spead.hpp"/>
 </selection>
 </viewState>
 </view>
@@ -93,19 +137,30 @@
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
-<view id="org.coocox.component.ui.ComponentView"/>
-<view id="org.coocox.builder.ui.views.ProjectView"/>
-<view id="org.coocox.builder.ui.exampleView"/>
-<view id="org.coocox.component.ui.Help"/>
-<fastViewBars/>
+<fastViewBars>
+<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@9801f4" orientation="256" selectedTabId="org.coocox.component.ui.ComponentView" style="0">
+<fastViews>
+<view id="org.coocox.component.ui.ComponentView" ratio="0.2991914"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@605b1e" orientation="512" selectedTabId="org.coocox.component.ui.Help" style="0">
+<fastViews>
+<view id="org.coocox.builder.ui.exampleView" ratio="0.3"/>
+<view id="org.coocox.component.ui.Help" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@1a86488" orientation="512" selectedTabId="org.coocox.builder.ui.views.ProjectView" style="0">
+<fastViews>
+<view id="org.coocox.builder.ui.views.ProjectView" ratio="0.48699608"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@9801f4">
-<folder activePageID="org.coocox.component.ui.ComponentView" appearance="2" expanded="2">
-<page content="org.coocox.component.ui.ComponentView" label="Components"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.component.ui.ComponentView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="stickyFolderRight" ratio="0.749497" ratioLeft="745" ratioRight="249" relationship="2" relative="org.eclipse.ui.internal.ViewStack@9801f4">
@@ -126,25 +181,20 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.14376238" ratioLeft="363" ratioRight="2162" relationship="2" relative="org.eclipse.ui.internal.ViewStack@9801f4"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@605b1e" ratio="0.71907216" ratioLeft="558" ratioRight="218" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.coocox.component.ui.Help" appearance="2" expanded="2">
-<page content="org.coocox.builder.ui.exampleView" label="IWDG Examples"/>
-<page content="org.coocox.component.ui.Help" label="Help"/>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.exampleView" label="LabelNotFound"/>
+<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
 <page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1a86488" ratio="0.36938435" ratioLeft="222" ratioRight="379" relationship="4" relative="org.eclipse.ui.internal.ViewStack@9801f4">
-<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
-<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </mainWindow>
@@ -155,158 +205,168 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/main.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/pin.hpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/pin.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/SelfPosition.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/Angle.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/Angle.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/Angle.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/Angle.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/Angle.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/SelfPosition.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/SelfPosition.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/spead.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/spead.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/SelfPosition.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/SelfPosition.hpp"/>
 </editors>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1325" y="0"/>
+<position info="not_deleted" x="4868" y="0"/>
+</item>
+<item historyLabel="Angle.hpp" index="2">
+<position info="not_deleted" x="411" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="5357" y="0"/>
+<position info="not_deleted" x="1032" y="0"/>
+</item>
+<item historyLabel="Angle.hpp" index="2">
+<position info="not_deleted" x="443" y="0"/>
+</item>
+<item historyLabel="Angle.cpp" index="3">
+<position info="not_deleted" x="473" y="0"/>
+</item>
+<item historyLabel="Angle.hpp" index="2">
+<position info="not_deleted" x="443" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1393" y="0"/>
+<position info="not_deleted" x="4894" y="6"/>
+</item>
+<item historyLabel="SelfPosition.cpp" index="1">
+<position info="not_deleted" x="3342" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1435" y="0"/>
+<position info="not_deleted" x="3395" y="0"/>
+</item>
+<item historyLabel="SelfPosition.cpp" index="1">
+<position info="not_deleted" x="877" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3365" y="0"/>
+<position info="not_deleted" x="3395" y="0"/>
+</item>
+<item historyLabel="Angle.cpp" index="3">
+<position info="not_deleted" x="473" y="0"/>
+</item>
+<item historyLabel="Angle.hpp" index="2">
+<position info="not_deleted" x="379" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3390" y="0"/>
+<position info="not_deleted" x="3395" y="0"/>
+</item>
+<item historyLabel="Angle.hpp" index="4">
+<position info="not_deleted" x="410" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3556" y="0"/>
+<position/>
+</item>
+<item historyLabel="Angle.hpp" index="4">
+<position info="not_deleted" x="410" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3581" y="0"/>
+<position info="not_deleted" x="4295" y="0"/>
+</item>
+<item historyLabel="Angle.hpp" index="5">
+<position info="not_deleted" x="410" y="0"/>
+</item>
+<item historyLabel="Angle.cpp" index="6">
+<position info="not_deleted" x="469" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3606" y="0"/>
+<position info="not_deleted" x="696" y="0"/>
+</item>
+<item historyLabel="Angle.cpp" index="6">
+<position info="not_deleted" x="469" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1484" y="0"/>
+<position info="not_deleted" x="696" y="0"/>
+</item>
+<item historyLabel="SelfPosition.cpp" index="7">
+<position info="not_deleted" x="877" y="0"/>
+</item>
+<item historyLabel="SelfPosition.hpp" index="8">
+<position info="not_deleted" x="98" y="0"/>
+</item>
+<item historyLabel="spead.hpp" index="9">
+<position info="not_deleted" x="517" y="0"/>
+</item>
+<item historyLabel="spead.cpp" index="10">
+<position info="not_deleted" x="548" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1484" y="0"/>
+<position info="not_deleted" x="708" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="6141" y="0"/>
+<position info="not_deleted" x="4314" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="6033" y="0"/>
+<position info="not_deleted" x="4421" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3644" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="843" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="845" y="0"/>
+<position info="not_deleted" x="4421" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
 <position/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position/>
+<position info="not_deleted" x="4421" y="0"/>
+</item>
+<item historyLabel="SelfPosition.hpp" index="8">
+<position info="not_deleted" x="349" y="0"/>
+</item>
+<item historyLabel="SelfPosition.cpp" index="7">
+<position info="not_deleted" x="877" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1340" y="0"/>
+<position info="not_deleted" x="4421" y="0"/>
+</item>
+<item historyLabel="SelfPosition.cpp" index="7">
+<position info="not_deleted" x="877" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3878" y="0"/>
+<position info="not_deleted" x="568" y="0"/>
+</item>
+<item historyLabel="Angle.hpp" index="5">
+<position info="not_deleted" x="410" y="0"/>
+</item>
+<item historyLabel="Angle.cpp" index="6">
+<position info="not_deleted" x="469" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position/>
+<position info="not_deleted" x="568" y="0"/>
+</item>
+<item historyLabel="SelfPosition.cpp" index="11">
+<position info="not_deleted" x="883" y="0"/>
+</item>
+<item historyLabel="SelfPosition.hpp" index="12">
+<position info="not_deleted" x="813" y="0"/>
+</item>
+<item historyLabel="SelfPosition.cpp" index="11">
+<position info="not_deleted" x="979" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3875" y="0"/>
+<position info="not_deleted" x="2833" y="4"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position/>
+<position info="not_deleted" x="4293" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3911" y="0"/>
+<position info="not_deleted" x="4240" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3933" y="0"/>
+<position info="not_deleted" x="1372" y="0"/>
 </item>
-<item historyLabel="pin.hpp" index="1">
-<position info="not_deleted" x="2606" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="194" y="0"/>
-</item>
-<item historyLabel="pin.hpp" index="1">
-<position info="not_deleted" x="2606" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="194" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="977" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="977" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="975" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="754" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3414" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="975" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="5792" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3940" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3951" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1465" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3328" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3338" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="4226" y="0"/>
-</item>
-<item historyLabel="pin.hpp" index="2">
-<position info="not_deleted" x="2606" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="759" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position/>
+<item historyLabel="SelfPosition.cpp" index="11">
+<position info="not_deleted" x="979" y="0"/>
 </item>
 <item active="true" historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="6016" y="0"/>
+<position info="not_deleted" x="1372" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -357,8 +417,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.hpp" tooltip="ichigoplus/layer_driver/base/encoder.hpp">
 <persistable path="/ichigoplus/layer_driver/base/encoder.hpp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pin.hpp" tooltip="ichigoplus/layer_driver/board/pin.hpp">
-<persistable path="/ichigoplus/layer_driver/board/pin.hpp"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="SelfPosition.hpp" tooltip="ichigoplus/layer_driver/board/SelfPosition.hpp">
+<persistable path="/ichigoplus/layer_driver/board/SelfPosition.hpp"/>
 </file>
 </mruList>
 </workbench>

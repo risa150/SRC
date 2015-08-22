@@ -33,48 +33,16 @@ protected:
     };
     int _digitalMode;
 public:
-	virtual int setupDigitalIn(){
-	    int i=_setupDigitalIn();
-	    if(i)return i;
-	    _digitalMode=DIGITAL_MODE_IN;
-	    return 0;
-	};
-	virtual int setupDigitalOut(){
-        int i=_setupDigitalOut();
-	    if(i)return i;
-	    _digitalMode=DIGITAL_MODE_OUT;
-	    return 0;
-    };
-	virtual int setupDigitalInPullUp(){
-	    int i=_setupDigitalInPullUp();
-	    if(i)return i;
-	    _digitalMode=DIGITAL_MODE_PULLUP;
-	    return 0;
-    };
-	virtual int setupDigitalInPullDown(){
-	    int i=_setupDigitalInPullDown();
-	    if(i)return i;
-	    _digitalMode=DIGITAL_MODE_PULLDOWN;
-	    return 0;
-	};
+	virtual int setupDigitalIn();
+	virtual int setupDigitalOut();
+	virtual int setupDigitalInPullUp();
+	virtual int setupDigitalInPullDown();
 
-	virtual void digitalWrite(int value){
-	    if(_digitalMode==DIGITAL_MODE_NULL) return;
-	    if(_digitalMode==DIGITAL_MODE_OUT)_digitalWrite(value);
-	    else{
-            if(value==1)setupDigitalInPullUp();
-            else if(value==0)setupDigitalInPullDown();
-            else setupDigitalIn();
-	    }
-	};
-	virtual int digitalRead(){
-	    if(_digitalMode==DIGITAL_MODE_NULL) return 0;
-	    if(_digitalMode==DIGITAL_MODE_IN)return _digitalRead();
-	    else return _digitalWrite();
-	};
-	virtual void digitalHigh(){digitalWrite(1);};
-	virtual void digitalLow(){digitalWrite(0);};
-	virtual void digitalToggle(){digitalWrite(!digitalRead());};
+	virtual void digitalWrite(int value);
+	virtual int digitalRead();
+	virtual void digitalHigh();
+	virtual void digitalLow();
+	virtual void digitalToggle();
 
     Digital& operator= (int value) {
         digitalWrite(value);

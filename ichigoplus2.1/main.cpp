@@ -9,39 +9,44 @@
 #include "mcutime.h"
 
 //board
+#include "layer_controller/SelfPosition.hpp"
+#include "layer_controller/out.hpp"
+#include "layer_controller/output.hpp"
+#include "layer_controller/spead.hpp"//speed
+#include "layer_controller/Angle.hpp"
 #include "pin.hpp"
+#include "layer_driver/circuit/can_encoder.hpp"
 #include<math.h>
-//#define M_PI 3.141592
+
 //circuit
 
-class KG {
-public:
-	int l=90,d=40,f=200,hn[3];
-	int oenc0=0,oenc1=0,oenc2=0;
-	float radgs=2;
-	float g=3;
-	float gs=3; //x,yの誤差
 
-	float a=30;	//α：30　β：30
-	float b=-90;//α：-90 β：150
-	float c=150;//α：150　β：-90
-	float aang,bang,cang;
-	float nas,nbs,ncs,nase,nbse,ncse,abx,aby,bcx,bcy,acx,acy,avex,avey;
-	float adist,bdist,cdist,ax,bx,cx,ay,by,cy,asl,bsl,csl,ase,bse,cse;
-	int p,j=0;
-	float xa[7]={0,-130,0,-500,0,630,0};  //-500:hidari
-	float ya[7]={2000,-130,500,0,-500,-2000+130,0};  //-500:sita
-	float lp,om1=0,om2=0,om3=0,re=16,n,k;
-	float deg=0,rad=0,q,m1=0,m2=0,m3=0,sa=0,w=0;
-	float la,r=10;
-	int time=0;
-    KG();
-    void timer();
-    void jkit();
-    void angle();
-    void out();
-    Serial0 serial;
 
+
+int main(void)
+{
+	int timer=0;
+
+	//float xa[]={    0,    0,    0,  -900,    0,    0,    0,  800,    0,    0,    0,-1300,   0,    0,    0, 1800,    0,    0,    0}; 	 //-500:hidari
+	//float ya[]={ 1400,    0, -300,  -750, -300,    0,  400,  800,  200,    0, -400, -400,-600,    0,  500,  300,  100,    0,    0};  //-500:sita ookubo:1550
+
+	float xa[]={    0,    0,    0, -900,    0,    0,    0,  800,    0,    0,    0,-1400,   0,    0,    0, 1800,    0,    0,    0}; 	 //-500:hidari
+	float ya[]={ 1400,    0, -200, -600, -400,    0,  400,  800,  200,    0, -400, -400,-800,    0,  500,  300,  400,    0,    0};  //-500:sita ookubo:1550
+	//満腹時							↑x-900~950
+
+	//float xa[]={    0, -900,    0,    0}; 	 //-500:hidari
+	//float ya[]={ -300, -750,    0,    0};  //-500:sita ookubo:1550
+
+	int i;
+	float m[3]={0};
+	int armcou=0;
+	int ltimer=0;
+	float candeg[3]={90,-30,-150};
+	float zkdkdeg[3]={30,150,-90};
+	int resttimer=0;
+	float deggs=2;
+	Can0 can;
+	Serial0 serial;
     Sw0 s0;
     Sw1 s1;
     Sw2 s2;
@@ -55,16 +60,30 @@ public:
 	CW2 a2;
     CCW2 b2;
     Pwm2 c2;
-    Enc0 enc0;
-    Enc1 enc1;
-    Enc2 enc2;
+    CW3 a3;
+    CCW3 b3;
+    Pwm3 c3;
+    Enc0 zkdkenc0;
+    Enc1 zkdkenc1;
+    Enc2 zkdkenc2;
+    A0 g;
+    A1 limb;
+    A3 limf;
+    A4 armPtt;
+    Led0 led;
 
-};
-
-KG::KG(){
-	c0.setupPwmOut(10000,0);
-	c1.setupPwmOut(10000,0);
-	c2.setupPwmOut(10000,0);
+    limb.setupDigitalInPullDown();
+    limf.setupDigitalInPullDown();
+    armPtt.setupAnalogIn();
+    led.setupDigitalOut();
+    g.setupDigitalInPullDown();
+    zkdkenc0.setup();
+    zkdkenc1.setup();
+    zkdkenc2.setup();
+	c0.setupPwmOut(10000,1);
+	c1.setupPwmOut(10000,1);
+	c2.setupPwmOut(10000,1);
+	c3.setupPwmOut(10000,1);
 	s0.setupDigitalIn();
 	s1.setupDigitalIn();
 	s2.setupDigitalIn();
@@ -75,287 +94,175 @@ KG::KG(){
 	b0.setupDigitalOut();
 	b1.setupDigitalOut();
 	b2.setupDigitalOut();
+	a3.setupDigitalOut();
+	b3.setupDigitalOut();
 	serial.setup(115200);
+	CanEncoder enc0(can,3,5);				//65535
+	CanEncoder enc1(can,1,5);
+	CanEncoder enc2(can,2,5);
+
 	enc0.setup();
 	enc1.setup();
 	enc2.setup();
+	enc0.cpr(200);		//ガンマ
+	enc1.cpr(200);
+	enc2.cpr(1000);
+	/*enc0.cpr(400);		//α
+	enc1.cpr(1000);
+	enc2.cpr(200);
+	enc0.rev(true);
+	enc1.rev(false);
+	enc2.rev(true);*/
+	float machineAngle=0;
+	int j=0;
+	float m1,m2,m3;
+	float gs=5;
+	float oenc0=0,oenc1=0,oenc2=0;
+	Buzzer pfpf;
+	pfpf.setupDigitalOut();
+	Angle angl;
+	Out out;
+	SelfPosition slfps(enc0,enc1,enc2);
+	Output oput(a0,b0,c0,a1,b1,c1,a2,b2,c2);
+	Speed spe(zkdkenc0,zkdkenc1,zkdkenc2);
 
-	a+=90;
-	b+=90;
-	c+=90;
-	a=a/180*M_PI;
-	b=b/180*M_PI;
-	c=c/180*M_PI;
-}
+	slfps.setup(candeg);
+	out.setup(zkdkdeg);
+	/*x[10]=30;
+	y[10]=30;*/
+	//slfps.getposition();
+	//座標からslfps.machinex,yをひく
 
-void KG::timer(){
-	if(millis()-time>50){
-		time=millis();
-		out();
-	}
-}
-void KG::jkit(){
-	aang=a;	//0.5
-	bang=b;	//0.6
-	cang=c;	//0.6
+	//slfps.getposition();
 
-	adist=((float)enc0.count()-(float)oenc0)/f*d*M_PI;  /*距離*/
-	bdist=((float)enc1.count()-(float)oenc1)/f*d*M_PI;
-	cdist=((float)enc2.count()-(float)oenc2)/f*d*M_PI;
+	//serial.printf("%f  %f\r\n",xa[j],ya[j]);
+	pfpf.digitalLow();
+	c3.pwmWrite(1);
 
-	ax=cos(aang)*adist;
-	ay=sin(aang)*adist;
-	bx=cos(bang)*bdist;
-	by=sin(bang)*bdist;
-	cx=cos(cang)*cdist;
-	cy=sin(cang)*cdist;
-
-	if(aang==M_PI||aang==0){
-		asl=0;
-		hn[0]=1;
-	}
-	else{
-		hn[0]=0;
-		asl=(tan(aang));
-		nas=(-1/asl);
-		nase=-nas*ax+ay;
-	}
-	if(bang==M_PI || bang==0){
-		bsl=0;
-		hn[1]=1;
-	}
-	else{
-		bsl=(tan(bang));
-		nbs=(-1/bsl);
-		nbse=(-nbs*bx+by);
-		hn[1]=0;
-	}
-	if(cang==M_PI || cang==0){
-		csl=0;
-		hn[2]=1;
-	}
-	else{
-		csl=(tan(cang));
-		cse=(-csl*cx+cy);
-		ncs=(-1/csl);
-		ncse=(-ncs*cx+cy);
-		hn[2]=0;
-	}
-	if(hn[0]==1||hn[1]==1){
-		if(hn[0]==1){
-			abx=ax;
-			aby=nbs*abx+nbse;
-		}else{
-			abx=bx;
-			aby=nas*abx+nase;
-		}
-	}else{
-		abx=(nase-nbse)/(nbs-nas);
-		aby=nas*abx+nase;
-	}
-	if(hn[1]==1||hn[2]==1){
-		if(hn[1]==1){
-			bcx=bx;
-			bcy=ncs*bcx+ncse;
-		}else{
-			bcx=cx;
-			bcy=nbs*bcx+nbse;
-		}
-	}else{
-		bcx=(nbse-ncse)/(ncs-nbs);
-		bcy=nbs*bcx+nbse;
-	}
-	if(hn[0]==1||hn[2]==1){
-		if(hn[0]==1){
-			acx=ax;
-			acy=ncs*acx+ncse;
-		}else{
-			acx=cx;
-			acy=nas*acx+nase;
-		}
-	}else{
-		acx=(nase-ncse)/(ncs-nas);
-		acy=nas*acx+nase;
-	}
-
-	avex=(abx+bcx+acx)/3;
-	avey=(aby+bcy+acy)/3;
-
-	if(avex!=0){
-
-		k=atan(avey/avex);
-	if(avey>0&&avex<0)
-		k+=M_PI;
-	if(avey<0&&avex<0)
-		k+=M_PI;
-	}
-	else {
-		if(ya[j]!=0)
-			k=(ya[j]/fabs(ya[j]))*M_PI/2;
-		else
-			k=0;
-	}
-
-	la=sqrt(pow(avex,2)+pow(avey,2));
-
-	avex=cos(k+rad)*la;
-	avey=sin(k+rad)*la;
-
-	xa[j]-=avex;
-	ya[j]-=avey;
-	if(fabs(xa[j])<gs&&fabs(ya[j])<gs)
-		j++;
-	if(xa[j]==0&&ya[j]==0){
-		c0.pwmWrite(1);
-		c1.pwmWrite(1);
-		c2.pwmWrite(1);
-	}
-}
-
-void KG::angle(){
-	rad+=(adist+bdist+cdist)/3/l;
-	deg=(rad*180/M_PI);
-	p=deg/180;
-	q=deg/180;
-
-	if(p>0&&p!=q){
-		if(p%2==0){
-			deg=deg-p*180;
-		}
-		else{
-			p++;
-			deg=deg-180*p;
-		}
-	}
-	else if(p<0&&p!=q){
-		if(p%2==0){
-			deg=deg-p*180;
-		}
-		else{
-			p--;
-			deg=deg-p*180;
-		}
-	}
-}
-
-void KG::out(){
-
-	if(xa[j]!=0){
-		sa=atan(ya[j]/xa[j]);
-	if(ya[j]>0&&xa[j]<0)
-	    sa+=M_PI;
-	if(ya[j]<0&&xa[j]<0)
-	    sa+=M_PI;
-	}
-	else if(ya[j]!=0)
-	   	sa=(ya[j]/fabs(ya[j]))*M_PI/2;
-	else
-		sa=0;
-
-	m1=cos(sa-(a+rad));
-	m2=cos(sa-(b+rad));
-	m3=cos(sa-(c+rad));
-
-	jkit();
-	angle();
-
-	w=fabs(m1);
-    if(w<fabs(m2)){
-    	w=fabs(m2);
-   	}
-    if(w<fabs(m3)){
-    	w=fabs(m3);
-    }
-    if(w!=0){
-    	m1/=w;
-    	m2/=w;
-    	m3/=w;
-    }
-
-    if(fabs(deg)>radgs){
-    	n=sin(rad/2)*g;    //調節必要
-    	m1-=n;
-    	m2-=n;
-    	m3-=n;
-    }
-
-    if(m1>0){
-      a0.digitalWrite(0);
-      b0.digitalWrite(1);
-    }
-    else{
-      a0.digitalWrite(1);
-      b0.digitalWrite(0);
-    }
-    if(m2>0){
-      a1.digitalWrite(0);
-      b1.digitalWrite(1);
-   	}
-    else{
-    	a1.digitalWrite(1);
-    	b1.digitalWrite(0);
-    }
-    if(m3>0){
-    	a2.digitalWrite(0);
-    	b2.digitalWrite(1);
-    }
-    else{
-     	a2.digitalWrite(1);
-     	b2.digitalWrite(0);
-    }
-
-    w=fabs(m1);
-    if(w<fabs(m2)){
-       	w=fabs(m2);
-     }
-    if(w<fabs(m3)){
-       	w=fabs(m3);
-    }
-    if(w!=0){
-    	m1/=w;
-    	m2/=w;
-   	    m3/=w;
-	}
-    lp=sqrt(pow(xa[j],2)+pow(ya[j],2));
- 	if(lp/100<1){
- 		m1*=(lp/100);
-   		m2*=(lp/100);
-   		m3*=(lp/100);
- 	}
-
-	c0.pwmWrite((1-(om1+((fabs(m1*re)-fabs((float)enc0.count()-(float)oenc0))/r))));
-	c1.pwmWrite((1-(om2+((fabs(m2*re)-fabs((float)enc1.count()-(float)oenc1))/r))));
-	c2.pwmWrite((1-(om3+((fabs(m3*re)-fabs((float)enc2.count()-(float)oenc2))/r))));
-
-	om1=om1+(fabs(m1*re)-fabs((float)enc0.count()-(float)oenc0))/r;
-	om2=om2+(fabs(m2*re)-fabs((float)enc1.count()-(float)oenc1))/r;
-	om3=om3+(fabs(m3*re)-fabs((float)enc2.count()-(float)oenc2))/r;
-
-	serial.printf("%.2f  %.2f  %.2f  %.2f %.2f  %.2f  %.2f  %.2f  %.2f\n\r",m1*re,m2*re,m3*re,sa*180/M_PI,deg,k*180/M_PI,avex,avey);
-
-	oenc0=enc0.count();
-	oenc1=enc1.count();
-	oenc2=enc2.count();
-	serial.printf("%f\t,%f\t,%f\t\n\r",avex,avey,ya[j]);
-
-}
-
-int main(void)
-{
-	KG kg;
 	while(1){
-		kg.serial.printf("hello\r\n");
-	if(kg.s0.digitalRead()==0){
-	    while(kg.s3.digitalRead()==1){
-	    	kg.timer();
-	    }
-	    	kg.c0.pwmWrite(1);
-	    	kg.c1.pwmWrite(1);
-	    	kg.c2.pwmWrite(1);
-	    }
+			slfps.oenc0=enc0.count();
+			slfps.oenc1=enc1.count();
+			slfps.oenc2=enc2.count();
+			//if(enc0.count()!=0||enc1.count()!=0||enc2.count()!=0)
+			serial.printf("hello\r\n");
+			if(s1.digitalRead()==0){
+				wait(100);
+				if(s1.digitalRead()==0){
+				if(armcou==0){
+					armcou=1;
+					a3.digitalWrite(0);
+					b3.digitalWrite(1);
+					c3.pwmWrite(0);
+					while(limb.digitalRead()==0);
+					wait(50);
+					while(limb.digitalRead()==0);
+					c3.pwmWrite(1);
+				}
+				else{
+					armcou=0;
+					a3.digitalWrite(1);
+					b3.digitalWrite(0);
+					c3.pwmWrite(0);
+					while(limf.digitalRead()==0);
+					wait(50);
+					while(limf.digitalRead()==0);
+					c3.pwmWrite(1);
+				}
+				}
+			}
+			if(s2.digitalRead()==0){
+				while(1){
+				if(millis()-ltimer>300){
+					ltimer=millis();
+					g.digitalToggle();
+				}
+				if(millis()-timer>50){
+					timer=millis();
+				slfps.getposition();
 
+				if(fabs(xa[j])<gs&&fabs(ya[j])<gs){
+					xa[j]=0;
+					ya[j]=0;
+					if(slfps.rad*180/M_PI<deggs){
+					c0.pwmWrite(1);
+					c1.pwmWrite(1);
+					c2.pwmWrite(1);
+					j++;
+				if(xa[j]==0&&ya[j]==0){
+					j++;
+					if(armcou==0){
+						armcou=1;
+						a3.digitalWrite(0);
+						b3.digitalWrite(1);
+						c3.pwmWrite(0);
+						while(limb.digitalRead()==0);
+						wait(50);
+						while(limb.digitalRead()==0);
+						c3.pwmWrite(1);
+						slfps.rad=0;
+						resttimer=millis();
+						while(millis()-resttimer<4000){
+								slfps.oenc0=enc0.count();
+								slfps.oenc1=enc1.count();
+								slfps.oenc2=enc2.count();
+						}
+					}
+					else{
+						armcou=0;
+						a3.digitalWrite(1);
+						b3.digitalWrite(0);
+						c3.pwmWrite(0);
+						while(limf.digitalRead()==0);
+						wait(50);
+						while(limf.digitalRead()==0);
+						c3.pwmWrite(1);
+					}
+
+				if(xa[j]==0&&ya[j]==0){
+					pfpf.digitalHigh();
+					c0.pwmWrite(1);
+					c1.pwmWrite(1);
+					c2.pwmWrite(1);
+					while(1){
+						if(millis()-ltimer>300){
+							ltimer=millis();
+							g.digitalToggle();
+						}
+					}
+				}
+				}
+				}
+				}
+				xa[j]-=slfps.avex;
+				ya[j]-=slfps.avey;
+
+				out.getidealangle(xa[j],ya[j],slfps.rad);
+
+				angl.getangle(slfps.rad);
+			    m1=out.m1+angl.m1;
+				m2=out.m2+angl.m2;
+				m3=out.m3+angl.m3;
+				/*m1=out.m1;
+				m2=out.m2;
+				m3=out.m3;//*/
+				/*m1=out.m1;
+				m2=out.m2;
+				m3=out.m3;//*/
+				/*m1=angl.m1;
+				m2=angl.m2;
+				m3=angl.m3;//*/
+
+				spe.getspeed(out.m1,out.m2,out.m3,ya[j],xa[j],angl.m1);
+				m[0]=m1;
+				m[1]=m2;
+				m[2]=m3;
+				oput.put(m);
+				//serial.printf("%f  %f  %f  %f  %f  %f  %f\r\n",angl.m1,angl.m2,angl.m3,out.m1,out.m2,out.m3,slfps.deg);
+			serial.printf("%f  %f  %d  %d  %d  %f\n\r",xa[j],ya[j],enc0.count(),enc1.count(),enc2.count(),slfps.deg);
+			}
+		}
+			}
 	}
 
 	return 0;
-
 }
